@@ -1,0 +1,26 @@
+{
+  "name": "twitch-notify-nix",
+  "version": "0.0.1",
+  "authors": [
+    "Virpool"
+  ],
+  "description": "Desktop notifications for availability of specified streams (for *nix)",
+  "moduleType": [
+    "node"
+  ],
+  "keywords": [
+    "twitch",
+    "desktop",
+    "linux",
+    "notifications"
+  ],
+  "license": "MIT",
+  "homepage": "https://github.com/virpool/twitch-notify-nix",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ]
+}

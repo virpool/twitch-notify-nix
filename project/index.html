@@ -1,0 +1,25 @@
+<h3>It works!</h3>
+
+<script>
+    var gui = require('nw.gui'),
+        win = gui.Window.get();
+
+    var tray = new gui.Tray({ title: gui.App.manifest.name, icon: 'icon.png' });
+
+    var menu = new gui.Menu();
+    menu.append(new gui.MenuItem({ type: 'checkbox', label: 'box1' }));
+    var item = new gui.MenuItem({
+        label: 'Exit',
+        click: function() {
+            gui.App.quit();
+        }
+    });
+    tray.menu = menu;
+    tray.on('click', function() {
+        win.show();
+    });
+
+    win.on('minimize', function() {
+        this.hide();
+    });
+</script>

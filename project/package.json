@@ -1,0 +1,37 @@
+{
+  "name": "twitch-notify-nix",
+  "version": "0.0.1",
+  "description": "Desktop notifications for availability of specified streams (for *nix)",
+  "main": "index.html",
+  "window": {
+    "title": "Twitch Notify",
+    "icon": "icon.png",
+    "toolbar": false,
+    "frame": true,
+    "position": "center",
+    "width": 640,
+    "height": 480,
+    "as_desktop": true,
+    "resizable": false,
+    "visible-on-all-workspaces": true
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:virpool/twitch-notify-nix.git"
+  },
+  "keywords": [
+    "twitch",
+    "desktop",
+    "linux",
+    "notifications"
+  ],
+  "author": "virpool",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/virpool/twitch-notify-nix/issues"
+  },
+  "homepage": "https://github.com/virpool/twitch-notify-nix"
+}
