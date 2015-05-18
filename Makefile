@@ -1,5 +1,4 @@
-default:
-	echo "Stub"
+default: run
 
 run:
 	nw project/

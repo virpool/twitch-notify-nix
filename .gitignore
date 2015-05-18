@@ -2,3 +2,4 @@ project/node_modules/
 project/bower_components/
 project/npm-debug.log
 .todo
+.settings

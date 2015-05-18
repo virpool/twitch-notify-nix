@@ -1,0 +1,95 @@
+body,
+body * {
+    user-select: none;
+    box-sizing: border-box;
+}
+
+body {
+    padding-bottom: 45px;
+}
+
+ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+li {
+    padding: 10px;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    margin: 0;
+    padding-bottom: 15px;
+}
+h1 {
+    font-size: 30px;
+    line-height: 35px;
+}
+h2 {
+    font-size: 24px;
+    line-height: 28px;
+}
+h3 {
+    font-size: 20px;
+    line-height: 24px;
+}
+h4 {
+    font-size: 17px;
+    line-height: 20px;
+}
+h5 {
+    font-size: 14px;
+    line-height: 20px;
+}
+h6 {
+    font-size: 12px;
+    line-height: 20px;
+}
+
+button[disabled] {
+    opacity: .5;
+}
+
+input[type="text"] {
+    padding: 8px;
+    height: 32px;
+}
+
+.pull-left {
+    float: left;
+}
+.pull-right {
+    float: right;
+}
+
+.column:not(:first-child) {
+    margin-left: 15px;
+}
+
+.control-btn-wrapper {
+    text-align: center;
+    margin-top: 7px;
+}
+
+#workspace {
+    padding: 15px;
+}
+
+#panel-new-channel {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 44px;
+
+    text-align: center;
+    padding: 4px 0;
+
+    background-color: #fff;
+    border-top: 1px solid #ccc;
+}
+
+#txt-channel-link {
+    width: 50%;
+}

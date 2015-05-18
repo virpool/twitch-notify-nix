@@ -1,25 +1,67 @@
-<h3>It works!</h3>
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
 
-<script>
-    var gui = require('nw.gui'),
-        win = gui.Window.get();
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>Twitch Notify</title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    var tray = new gui.Tray({ title: gui.App.manifest.name, icon: 'icon.png' });
+    <link rel="stylesheet" href="assets/css/normalize.css">
+    <link rel="stylesheet" href="assets/css/h5bp.css">
+    <link rel="stylesheet" href="assets/css/main.css">
+    <link rel="stylesheet" href="bower_components/ladda/dist/ladda.min.css">
 
-    var menu = new gui.Menu();
-    menu.append(new gui.MenuItem({ type: 'checkbox', label: 'box1' }));
-    var item = new gui.MenuItem({
-        label: 'Exit',
-        click: function() {
-            gui.App.quit();
+    <style>
+        [v-cloak] {
+            display: none;
         }
-    });
-    tray.menu = menu;
-    tray.on('click', function() {
-        win.show();
-    });
-
-    win.on('minimize', function() {
-        this.hide();
-    });
-</script>
+    </style>
+</head>
+<body onload="process.mainModule.exports.init(initClient);">
+    <div id="workspace" v-cloak>
+        <div v-show="currentChannels.length > 0">
+            <h4><center>Current channels</center></h4>
+            <ul>
+                <li v-repeat="channel: currentChannels" class="clearfix">
+                    <div class="pull-left column" style="width: 100px;">
+                        <img alt="Channel logo" width="100" src="{{* channel.logo}}">
+                        <div class="control-btn-wrapper">
+                            <button class="ladda-button" data-color="blue" data-size="xs" v-on="click: openChannel(channel)" v-show="!!channel.stream" v-attr="disabled: isActiveChannel">View</button>
+                        </div>
+                        <div class="control-btn-wrapper">
+                            <button class="ladda-button" data-color="red" data-size="xs" v-on="click: removeChannel(channel)">Remove</button>
+                        </div>
+                    </div>
+                    <div class="pull-left column" style="width: 520px;">
+                        <strong>{{* channel.display_name}}</strong>
+                        <span v-if="!!channel.stream">
+                            playing {{channel.stream.game}} (viewers: {{channel.stream.viewers}})
+                        </span>
+                        <div v-if="!!channel.stream" style="text-align: center; margin-top: 7px;">
+                            <img alt="Stream preview" src="{{channel.stream.preview.medium}}">
+                        </div>
+                        <div v-if="!channel.stream">
+                            Offline
+                        </div>
+                    </div>
+                </li>
+            </ul>
+        </div>
+        <div v-show="currentChannels.length === 0">
+            No channels.
+        </div>
+        <div id="panel-new-channel">
+            <label for="txt-channel-link">New channel: </label>
+            <input type="text" id="txt-channel-link" v-model="newChannelLink">
+            <button id="add-channel" class="ladda-button" data-color="green" data-size="xs" data-spinner-size="20" data-style="zoom-in" v-on="click: addChannel()" v-attr="disabled: isBusy">Add</button>
+        </div>
+    </div>
+    <script src="bower_components/fetch/fetch.js"></script>
+    <script src="bower_components/vue/dist/vue.js"></script>
+    <script src="bower_components/ladda/dist/spin.min.js"></script>
+    <script src="bower_components/ladda/dist/ladda.min.js"></script>
+    <script src="assets/js/app.js"></script>
+</body>
+</html>

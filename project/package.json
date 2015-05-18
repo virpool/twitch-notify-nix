@@ -3,17 +3,19 @@
   "version": "0.0.1",
   "description": "Desktop notifications for availability of specified streams (for *nix)",
   "main": "index.html",
+  "node-main": "index.js",
   "window": {
     "title": "Twitch Notify",
     "icon": "icon.png",
     "toolbar": false,
     "frame": true,
     "position": "center",
-    "width": 640,
+    "width": 700,
     "height": 480,
     "as_desktop": true,
     "resizable": false,
-    "visible-on-all-workspaces": true
+    "visible-on-all-workspaces": true,
+    "show": true
   },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
@@ -33,5 +35,14 @@
   "bugs": {
     "url": "https://github.com/virpool/twitch-notify-nix/issues"
   },
-  "homepage": "https://github.com/virpool/twitch-notify-nix"
+  "homepage": "https://github.com/virpool/twitch-notify-nix",
+  "dependencies": {
+    "async": "^0.9.0",
+    "hjson": "^1.6.3",
+    "lodash": "^3.6.0",
+    "log": "^1.4.0",
+    "nconf": "^0.7.1",
+    "nedb": "^1.1.2",
+    "when": "^3.7.2"
+  }
 }

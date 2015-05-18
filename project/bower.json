@@ -22,5 +22,10 @@
     "bower_components",
     "test",
     "tests"
-  ]
+  ],
+  "dependencies": {
+    "vue": "~0.11.5",
+    "fetch": "~0.7.0",
+    "ladda": "~0.9.8"
+  }
 }
